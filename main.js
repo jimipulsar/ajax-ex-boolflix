@@ -23,7 +23,7 @@ $(document).ready(function() {
               titolo_film: movies[i].title,
               titolo_originale: movies[i].original_title,
               lingua: movies[i].original_language,
-              voto: movies[i].vote_average //Math.ceil(risultatoFilm[i].vote_average / 2)
+              voto: movies[i].vote_average 
             };
             var html = template(context);
 
