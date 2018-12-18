@@ -1,70 +1,38 @@
 $(document).ready(function() {
-  var date = moment('2018-01-01');
-  printList(date);
-  addHolidays(date);
 
-  $('#next').click(function() {
-    date = date.add(1, 'months');
-    printList(date);
-    addHolidays(date);
-  });
+  $('#bottone').on('click', function() {
 
-  $('#prev').click(function() {
-    date = date.subtract(1, 'months');
-    printList(date);
-    addHolidays(date);
+    var searchValue = $('#ricerca').val();
+    $('.lista_film').html('');
 
-});
-
-function printList(date) {
-
-  $('.wrapper h1').text(date.format('MMMM YYYY'));
-  var daysInMonth = date.daysInMonth();
-// resettiamo il contenuto dell'ul
-  $('.wrapper ul').html('');
-
-  for (var i = 1; i < daysInMonth; i++) {
-    var liTemplate = $('.templates li').clone();
-    var liData = date.format('YYYY-MM') + i;
-    liTemplate.attr('data-original-date', liData);
-    liTemplate.text(i + ' ' + date.format('MMM'));
-    $('.wrapper ul').append(liTemplate);
-  }
-}
-});
-
-function addHolidays(date) {
-  $.ajax({
-    url:'https://holidayapi.com/v1/holidays',
+  $.ajax( {
+    url: 'https://api.themoviedb.org/3/search/movie?api_key=fb03d4cbdcf6ffcfe2c1ecbc08921e45',
     method: 'GET',
     data: {
-      key: '667b8556-ef24-4faf-afac-8fdbc9acd97c',
-      country: 'IT',
-      month: date.format('MM'),
-      year: date.format('YYYY')
+      key: 'fb03d4cbdcf6ffcfe2c1ecbc08921e45',
+      language: 'it',
+      query: searchValue
     },
     success: function(data) {
-      var holidays = data.holidays;
+      console.log(data);
+      var movies = data.results;
+      for (var i = 0; i < movies.length; i++) {
+        var source   = document.getElementById("entry-template").innerHTML;
+        var template = Handlebars.compile(source);
+            var context = {
+              titolo_film: movies[i].title,
+              titolo_originale: movies[i].original_title,
+              lingua: movies[i].original_language,
+              voto: movies[i].vote_average //Math.ceil(risultatoFilm[i].vote_average / 2)
+            };
+            var html = template(context);
 
-      $('ul li').each(function () {
-        var thisDate = $(this).attr('data-original-date');
-        thisDate = moment(thisDate, 'YYYY-MM-D');
-
-        for (var i = 0; i < holidays.length; i++) {
-          var holiday = holidays[i];
-          console.log(holiday);
-           var holidayDate = moment(holiday.date);
-
-          if(holidayDate.isSame(thisDate, 'day')) {
-            $(this).addClass('active');
-            $(this).append(' - ' + holiday.name);
+            $('.lista_film').append(html);
           }
-        }
-      });
-    },
-    error: function(data){
-      alert("Si è verificato un'errore");
-    }
-  });
-}
-
+},
+error: function(data){
+alert("Si è verificato un'errore");
+},
+});
+});
+});
