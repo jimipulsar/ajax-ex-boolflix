@@ -14,16 +14,17 @@ $(document).ready(function() {
       query: searchValue
     },
     success: function(data) {
-      console.log(data);
+
       var movies = data.results;
       for (var i = 0; i < movies.length; i++) {
         var source = document.getElementById("entry-template").innerHTML;
         var template = Handlebars.compile(source);
+        var voto_effettivo = Math.ceil(movies[i].vote_average / 2);
             var context = {
               titolo_film: movies[i].title,
               titolo_originale: movies[i].original_title,
               lingua: movies[i].original_language,
-              voto: movies[i].vote_average
+              voto: stars(voto_effettivo)
             };
             var html = template(context);
             $('.lista_film').append(html);
@@ -34,4 +35,11 @@ alert("Si è verificato un'errore");
 },
 });
 });
+function stars(voto){
+    var star = '';
+    for (var k = 0; k < voto; k++) {
+      star += '<i class="fas fa-star"></i>';
+    }
+    return star;
+  }
 });

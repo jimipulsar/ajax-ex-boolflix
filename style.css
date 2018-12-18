@@ -27,10 +27,16 @@
 #ricerca {
   padding:10px;
   width: 289px;
+  border-radius: 5px;
+  margin-right: 12px;
+  font-size: 15px;
 }
 
 #bottone {
   padding:10px;
+  border-radius: 4px;
+  background: #f3bf49;
+  font-size: 15px;
 }
 
 
@@ -42,4 +48,14 @@
   font-size:20px;
   margin-left: 39px;
   margin-top: 58px;
+}
+
+.fa, .fas {
+  font-size:20px;
+  color: #ffbf4c;
+}
+
+.wrapper {
+  width:100%;
+  position:relative;
 }
