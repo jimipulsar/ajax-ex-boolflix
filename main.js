@@ -17,16 +17,15 @@ $(document).ready(function() {
       console.log(data);
       var movies = data.results;
       for (var i = 0; i < movies.length; i++) {
-        var source   = document.getElementById("entry-template").innerHTML;
+        var source = document.getElementById("entry-template").innerHTML;
         var template = Handlebars.compile(source);
             var context = {
               titolo_film: movies[i].title,
               titolo_originale: movies[i].original_title,
               lingua: movies[i].original_language,
-              voto: movies[i].vote_average 
+              voto: movies[i].vote_average
             };
             var html = template(context);
-
             $('.lista_film').append(html);
           }
 },
