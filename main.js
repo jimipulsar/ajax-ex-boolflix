@@ -94,6 +94,8 @@ function stars(voto){
 
 });
 
+
+
 // Funzione di ricerca dinamica mentre scrivi
  // $("#ricerca").bind('keypress',function(){
  //   $("#entry-template").find("li").each(function(){
