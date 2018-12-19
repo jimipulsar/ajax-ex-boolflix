@@ -9,6 +9,7 @@
 .container {
   width:100%;
   position:relative;
+  display:flex;
 }
 
 .navbar {
@@ -16,6 +17,24 @@
   background:#000;
   border-bottom:1px solid #fff;
   padding: 19px;
+  width:100%;
+position: relative;
+}
+.title-left {
+  width: 33%;
+  float:left;
+  margin-left: 31px;
+  text-transform: uppercase;
+}
+.title-left h1 {
+  color:red;
+  font-size:32px;
+}
+.title-right {
+  width: 31%;
+  float: right;
+  display: flex;
+  flex-direction: row;
 }
 
 .navigation {
@@ -26,7 +45,7 @@
 
 #ricerca {
   padding:10px;
-  width: 289px;
+  width: 100%;
   border-radius: 5px;
   margin-right: 12px;
   font-size: 15px;
@@ -42,12 +61,22 @@
 
 #entry-template {
   font-size:20px;
+  width:400px;
+  float:left;
+
 }
 
 .lista_film {
-  font-size:20px;
-  margin-left: 39px;
-  margin-top: 58px;
+  font-size:15px;
+  width:100%;
+  padding: 26px;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.resize {
+  width:300px;
 }
 
 .fa, .fas {
@@ -58,4 +87,21 @@
 .wrapper {
   width:100%;
   position:relative;
+}
+
+table  {
+	border-collapse:collapse;
+	box-shadow: 0px 2px 12px #6d6d6d;
+	margin-left: 22px;
+	margin-top: 26px;
+}
+td, th {
+	border: 1px solid #8d8d8d;
+	padding: 8px;
+	width: 200px;
+}
+
+.img {
+  width:100%;
+  height:auto;
 }

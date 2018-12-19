@@ -15,19 +15,28 @@
 <body>
   <div class="container">
     <div class="navbar">
+      <div class="title-left">
+      <h1>BOOLFIX</h1>
+      </div>
+      <div class="title-right">
+
       <input id="ricerca" type="text"  placeholder="Inserisci un film che vuoi trovare nel database">
       <button id="bottone">Cerca</button>
-      <ul class="lista_film">
+    </div>
+      <div class="lista_film">
+      <ul class="resize">
       </ul>
     </div>
+    </div>
       <script id="entry-template" type="text/x-handlebars-template">
-        <ul>
-          <li>Titolo: {{titolo_film}}</li>
-          <li>Titolo Originale: {{titolo_originale}}</li>
-          <li>Lingua Originale: {{lingua}}</li>
-          <li>Voto: <span class="stars">{{{voto}}}</span></li>
+        <table>
+          <tr><td><img src="{{Copertina}}"></tr></td>
+            <tr><td>Titolo: {{titolo_film}}</tr></td>
+            <tr><td>Titolo Originale: {{titolo_originale}}</tr></td>
+            <tr><td>Lingua Originale: {{lingua}}</tr></td>
+            <tr><td>Voto: <span class="stars">{{{voto}}}</span></tr></td>
           <br>
-        </ul>
+        </table>
       </script>
   </div>
 </body>
