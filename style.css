@@ -68,8 +68,7 @@ position: relative;
 
 .lista_film {
   font-size:15px;
-  width:100%;
-  padding: 26px;
+  padding: 70px;
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
