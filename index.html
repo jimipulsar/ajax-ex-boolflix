@@ -29,14 +29,16 @@
     </div>
     </div>
       <script id="entry-template" type="text/x-handlebars-template">
+        <div class="card">
         <table>
           <tr class="tbody"><td><img src="{{Copertina}}"></tr></td>
             <tr><td>Titolo: {{titolo_film}}</tr></td>
             <tr><td>Titolo Originale: {{titolo_originale}}</tr></td>
-            <tr><td>Lingua Originale: {{lingua}}</tr></td>
+            <tr><td>Lingua Originale: <img src="{{lingua}}" class="bandiera"></tr></td>
             <tr><td>Voto: <span class="stars">{{{voto}}}</span></tr></td>
           <br>
         </table>
+      </div>
       </script>
   </div>
 </body>

@@ -1,3 +1,5 @@
+var paesiSupportati = ["it", "en", "fr", "ja", "es", "de"];
+
 $(document).ready(function() {
 
   $('#bottone').on('click', function() {
@@ -19,11 +21,14 @@ $(document).ready(function() {
       for (var i = 0; i < movies.length; i++) {
         var source = document.getElementById("entry-template").innerHTML;
         var template = Handlebars.compile(source);
+        var lang = movies[i].original_language;
+        var image = "https://image.tmdb.org/t/p/w185/" + movies[i].poster_path;
         var voto_effettivo = Math.ceil(movies[i].vote_average / 2);
             var context = {
+              Copertina: image,
               titolo_film: movies[i].name,
               titolo_originale: movies[i].original_name,
-              lingua: movies[i].original_language,
+              lingua: gestisciLingua(lang),
               voto: stars(voto_effettivo)
             };
             var html = template(context);
@@ -35,6 +40,8 @@ alert("Si è verificato un'errore");
 },
 });
 });
+
+
 function stars(voto){
     var star = '';
     for (var k = 0; k < voto; k++) {
@@ -66,12 +73,13 @@ $(document).ready(function() {
         var source = document.getElementById("entry-template").innerHTML;
         var template = Handlebars.compile(source);
         var voto_effettivo = Math.ceil(movies[i].vote_average / 2);
+        var lang = movies[i].original_language;
         var image = "https://image.tmdb.org/t/p/w185/" + movies[i].poster_path;
             var context = {
               Copertina: image,
               titolo_film: movies[i].title,
               titolo_originale: movies[i].original_name,
-              lingua: movies[i].original_language,
+              lingua: gestisciLingua(lang),
               voto: stars(voto_effettivo)
             };
             var html = template(context);
@@ -83,6 +91,20 @@ alert("Si è verificato un'errore");
 },
 });
 });
+
+function gestisciLingua(lingua) {
+    var htmlOutput = '';
+
+    if (paesiSupportati.includes(lingua)) {
+
+      htmlOutput =  lingua + '.png';
+    } else {
+      console.log();
+    }
+
+    return htmlOutput;
+
+}
 function stars(voto){
     var star = '';
     for (var k = 0; k < voto; k++) {
