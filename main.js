@@ -6,7 +6,7 @@ $(document).ready(function() {
     $('.lista_film').html('');
 
   $.ajax( {
-    url: 'https://api.themoviedb.org/3/search/tv?api_key=fb03d4cbdcf6ffcfe2c1ecbc08921e45&language=it-IT&page=1&include_adult=false&include_image_language=en-US',
+    url: 'https://api.themoviedb.org/3/search/tv?api_key=fb03d4cbdcf6ffcfe2c1ecbc08921e45&language=it-IT&page=1&include_adult=false&include_image_language=it-IT',
     method: 'GET',
     data: {
       key: 'fb03d4cbdcf6ffcfe2c1ecbc08921e45',
@@ -52,7 +52,7 @@ $(document).ready(function() {
     $('.lista_film').html('');
 
   $.ajax( {
-    url: 'https://api.themoviedb.org/3/search/movie?api_key=fb03d4cbdcf6ffcfe2c1ecbc08921e45&language=it-IT&page=1&include_adult=false&include_image_language=en-US',
+    url: 'https://api.themoviedb.org/3/search/movie?api_key=fb03d4cbdcf6ffcfe2c1ecbc08921e45&language=it-IT&page=1&include_adult=false&include_image_language=it-IT',
     method: 'GET',
     data: {
       key: 'fb03d4cbdcf6ffcfe2c1ecbc08921e45',

@@ -105,3 +105,16 @@ td, th {
   width:100%;
   height:auto;
 }
+
+table {
+  padding: 50px;
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  cursor:pointer;
+}
+
+table:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}

@@ -20,7 +20,7 @@
       </div>
       <div class="title-right">
 
-      <input id="ricerca" type="text"  placeholder="Inserisci un film che vuoi trovare nel database">
+      <input id="ricerca" type="text"  placeholder="Ricerca film, serie tv...">
       <button id="bottone">Cerca</button>
     </div>
       <div class="lista_film">
@@ -30,7 +30,7 @@
     </div>
       <script id="entry-template" type="text/x-handlebars-template">
         <table>
-          <tr><td><img src="{{Copertina}}"></tr></td>
+          <tr class="tbody"><td><img src="{{Copertina}}"></tr></td>
             <tr><td>Titolo: {{titolo_film}}</tr></td>
             <tr><td>Titolo Originale: {{titolo_originale}}</tr></td>
             <tr><td>Lingua Originale: {{lingua}}</tr></td>
